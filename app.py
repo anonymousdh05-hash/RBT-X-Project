@@ -23,9 +23,9 @@ def webhook():
     return "<h1>RBT-X: System Online 💀🔥</h1>", 200
 
 @bot.message_handler(func=lambda message: True)
-def handle_all(message):
-    if message.from_user.id == MASTER_ID:
-        bot.reply_to(message, "🚨 استجابة فورية: النظام يعمل يا Master Noor.")
-
+def echo_all(message):
+    print(f"Received message from: {message.from_user.id}") # ستظهر في Logs Render
+    bot.reply_to(message, "🚨 تم كسر الصمت! النظام يستجيب الآن.")
+    
 if __name__ == "__main__":
     app.run(host="0.0.0.0", port=int(os.environ.get('PORT', 5000)))
