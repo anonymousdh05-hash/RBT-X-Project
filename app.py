@@ -4,8 +4,7 @@ import telebot
 
 TOKEN = "8428773284:AAG0Kuiy2tDikoli-bZ66_Mn90GuVbgkZMw"
 MASTER_ID = 7128354703
-# اترك SERVER_URL فارغاً الآن، سنضعه بعد إنشاء الخدمة في Render
-SERVER_URL = "" 
+SERVER_URL = "https://rbt-x-project.onrender.com"
 
 app = Flask(__name__)
 bot = telebot.TeleBot(TOKEN)
@@ -19,11 +18,9 @@ def getMessage():
 
 @app.route("/")
 def webhook():
-    if SERVER_URL:'https://rbt-x-project.onrender.com'
-        bot.remove_webhook()
-        bot.set_webhook(url=f"{SERVER_URL}/{TOKEN}")
-        return f"<h1>RBT-X: System Online</h1><p>Master {MASTER_ID} in control.</p>", 200
-    return "<h1>RBT-X: Set SERVER_URL first!</h1>", 200
+    bot.remove_webhook()
+    bot.set_webhook(url=f"{SERVER_URL}/{TOKEN}")
+    return "<h1>RBT-X: System Online 💀🔥</h1>", 200
 
 @bot.message_handler(func=lambda message: True)
 def handle_all(message):
