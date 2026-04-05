@@ -19,7 +19,7 @@ def getMessage():
 
 @app.route("/")
 def webhook():
-    if SERVER_URL:
+    if SERVER_URL:'https://rbt-x-project.onrender.com'
         bot.remove_webhook()
         bot.set_webhook(url=f"{SERVER_URL}/{TOKEN}")
         return f"<h1>RBT-X: System Online</h1><p>Master {MASTER_ID} in control.</p>", 200
